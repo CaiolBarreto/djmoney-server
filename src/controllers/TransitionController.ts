@@ -56,7 +56,7 @@ export class TransitionController {
 
       return next();
     } catch (error) {
-      return next(error)
+      return next(error);
     }
   }
 
