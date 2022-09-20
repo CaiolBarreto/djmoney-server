@@ -1,6 +1,6 @@
 import { prisma } from "../prisma";
 import { Transition } from "@prisma/client";
-import { CreateTransitionDTO } from "../DTOs/Transition";
+import { CreateTransitionDTO } from "../DTOs/TransitionDTO";
 
 export class CreateTransition {
   async create({
