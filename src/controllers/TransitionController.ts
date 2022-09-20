@@ -15,7 +15,7 @@ export class TransitionController {
       res.locals = {
         status: 201,
         message: 'Transition created',
-        data: transition
+        data: transition,
       };
 
       return next();
