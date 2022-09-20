@@ -1,4 +1,3 @@
-import { prisma } from "@prisma/client";
 import { NextFunction, Request, Response } from "express";
 import { CreateTransition } from "../repositories/TransitionRepository";
 
@@ -10,7 +9,7 @@ export class TransitionController {
       const transitionData = { type, title, value, category, date };
   
       const transitionRepository = new CreateTransition();
-  
+
       const transition = await transitionRepository.create(transitionData);
   
       res.locals = {
@@ -25,9 +24,10 @@ export class TransitionController {
     }
   }
 
-  async readAll(res: Response, next: NextFunction) {
+  async readAll(req: Request, res: Response, next: NextFunction) {
     try {
       const transitionRepository = new CreateTransition();
+      
       const transitions = await transitionRepository.getAll();
 
       res.locals = {
@@ -44,7 +44,9 @@ export class TransitionController {
   async read(req: Request, res: Response, next: NextFunction) {
     try {
       const { transitionId } = req.params;
+
       const transitionRepository = new CreateTransition();
+
       const transition = await transitionRepository.getById(transitionId);
 
       res.locals = {

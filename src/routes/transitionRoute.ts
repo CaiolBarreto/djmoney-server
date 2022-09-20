@@ -5,6 +5,13 @@ const transitionController = new TransitionController();
 
 const transitionRoute = Router();
 
-transitionRoute.post("/", transitionController.create);
+transitionRoute.route("/")
+  .post(transitionController.create)
+  .get(transitionController.readAll)
+
+transitionRoute.route("/:transitionId")
+  .get(transitionController.read)
+  .delete(transitionController.delete)
+  .patch(transitionController.patch)
 
 export { transitionRoute };
