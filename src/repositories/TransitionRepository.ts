@@ -7,24 +7,11 @@ type TransitionType = {
 	title: string;
 	value: number;
 	category: string;
-	date: Date;
+	date: string;
 }
 export class CreateTransition {
-  async create({
-    type, title, value, category, date
-}: CreateTransitionDTO): Promise<Transition> {
-    
-    const transition = await prisma.transition.create({
-      data: {
-        type,
-        title,
-        value,
-        category,
-        date
-      }
-    })
-
-    return transition;
+  async create(transitionData: TransitionType): Promise<Transition> {
+    return await prisma.transition.create({ data: transitionData })
   }
 
   async getAll(): Promise<Transition[]> {

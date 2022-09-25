@@ -3,5 +3,5 @@ export interface CreateTransitionDTO {
 	title: string;
 	value: number;
 	category: string;
-	date: Date;
+	date: string;
 }

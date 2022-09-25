@@ -16,5 +16,5 @@ model Transition {
 	title String
 	value Float
 	category String
-	date DateTime 
+	date String
 }
